@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="colorsleuth.js"></script>
+
+  <style>
+    #startScreen {
+      text-align: center;
+    }
+
+    #gameScreen {
+      text-align: center;
+      padding: 0;
+      margin: 0;
+      width: 100vw;
+      max-width: 100%;
+    }
+
+    #center, #gameOver {
+      border: solid;
+      padding: 0;
+      margin: 0;
+      display: inline-block;
+      vertical-align: top;
+      width: 700px;
+      height: 700px;
+    }
+
+    #coloredTiles {
+      border: solid;
+      border-collapse: separate;
+      box-sizing: border-box;
+      border-spacing: 15px;
+      width: 100%;
+      height: 100%;
+    }
+
+    td {
+      border: solid;
+      border-collapse: separate;
+      box-sizing: border-box;
+    }
+
+    #playerOne, #playerTwo {
+      border: solid;
+      padding: 0;
+      margin: 30px;
+      display: inline-block;
+      vertical-align: top;
+      width: 300px;
+      height: 160px;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="startScreen">
+    <h1 style="font-size: 10em; margin-bottom: 50px;">Color Sleuth</h1>
+    <h2>Rules</h2>
+    <p>Color Sleuth is a two-player game. Each turn, players will attempt to choose the colored tile that is a different shade from all the others.<br>
+      If you choose correctly, you earn one point. If you choose incorrectly, you score no points.<br>
+      The player with the most points after ten rounds wins.<br>
+      As the rounds go on, the difficulty level will increase, so be prepared.</p>
+    <p>Once you are ready, press START to begin.</p><br><br>
+    <button onclick="startGame()" style="font: 3em 'Times New Roman', serif;">START</button>
+  </div>
+
+  <div id="gameScreen" style="display: none;">
+    <h1 id="roundNum" style="margin: 5px;"></h1>
+    <div id="playerOne">
+      <h2>Player 1</h2>
+      <p id="oneScore">Score: 0</p>
+      <p id="oneTurn"><i>Your turn</i></p>
+    </div>
+
+    <div id="center">
+      <table id="coloredTiles">
+        <tr>
+          <td id="1" onclick="testTile(1)"> </td>
+          <td id="2" onclick="testTile(2)"> </td>
+          <td id="3" onclick="testTile(3)"> </td>
+        </tr>
+        <tr>
+          <td id="4" onclick="testTile(4)"> </td>
+          <td id="5" onclick="testTile(5)"> </td>
+          <td id="6" onclick="testTile(6)"> </td>
+        </tr>
+        <tr>
+          <td id="7" onclick="testTile(7)"> </td>
+          <td id="8" onclick="testTile(8)"> </td>
+          <td id="9" onclick="testTile(9)"> </td>
+        </tr>
+      </table>
+    </div>
+
+    <div id="gameOver" style="display: none;">
+      <h2 id="winner"></h2>
+      <button onclick="retry()" style="font: 1em serif;">REPLAY</button>
+    </div>
+
+    <div id="playerTwo">
+      <h2>Player 2</h2>
+      <p id="twoScore">Score: 0</p>
+      <p id="twoTurn" style="display: none;"><i>Your turn</i></p>
+    </div>
+
+    <div>
+      <h1 id="accuracy" style="margin: 5px;"></h1>
+    </div>
+  </div>
+</body>
+
+</html>
